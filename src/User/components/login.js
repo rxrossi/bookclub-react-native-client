@@ -57,9 +57,11 @@ class Login extends React.Component {
           </TouchableOpacity>)
       }
 
-      <Text
-        style={styles.createAccBtn}
-      >Don't have an account yet? REALLY? Create one clicking here</Text>
+      <TouchableOpacity>
+        <Text
+          style={styles.createAccBtn}
+        >Don't have an account yet? REALLY? Create one clicking here</Text>
+      </TouchableOpacity>
     </KeyboardAvoidingView>
     );
   }
