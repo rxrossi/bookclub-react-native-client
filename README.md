@@ -1,6 +1,6 @@
-#Bookclub client for FCC in React Native
+# Bookclub client for FCC in React Native
 
-##Info
+## Info
 Still a work in progress, working on presentational components using storybook
 
 To get started, on one console:
@@ -13,5 +13,5 @@ Then on another console:
   npm start //Starts the app, that currently loads just the storybook
 ```
 
-##What is ready in storybook:
+## What is ready in storybook:
   - Login and Register (Made considering reusability and using HOC for 'going to the next field on return key press')
