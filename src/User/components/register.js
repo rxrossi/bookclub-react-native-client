@@ -7,7 +7,7 @@ import GenericError from './genericError';
 
 class Register extends React.Component {
   render() {
-    const { Input, working, errors } = this.props;
+    const { Input, working, errors = {} } = this.props;
     return (
       <KeyboardAvoidingView>
         <Input
@@ -16,6 +16,7 @@ class Register extends React.Component {
           keyboardType="email-address"
           name="email"
           nextField="password"
+          error={errors.email}
         />
 
         <Input
@@ -24,6 +25,7 @@ class Register extends React.Component {
           secureTextEntry
           name="password"
           nextField="confirmPassword"
+          error={errors.password}
         />
 
         <Input
@@ -32,6 +34,7 @@ class Register extends React.Component {
           placeholder="Must be equal to the one before"
           secureTextEntry
           name="confirmPassword"
+          error={errors.confirmPassword}
         />
 
         { errors && errors.general && <GenericError text={errors.general} /> }

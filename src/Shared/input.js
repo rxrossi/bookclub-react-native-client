@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { View, Text, TextInput } from 'react-native';
+import InputError from './inputError';
 
 class Input extends React.Component {
   render () {
@@ -10,6 +10,7 @@ class Input extends React.Component {
       label,
       name,
       nextField,
+      error,
       focusRelated: { focusNext, setRef },
       ...rest,
     } = this.props;
@@ -41,6 +42,7 @@ class Input extends React.Component {
         {...restOfProps}
 
       />
+      { error && <InputError text={error} fieldName={name}/> }
     </View>
     );
   }

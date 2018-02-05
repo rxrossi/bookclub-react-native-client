@@ -2,13 +2,11 @@ import React from 'react';
 import { Constants } from 'expo';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import Login from './components/login.js';
+import Login from './containers/login.js';
 import Register from './containers/register.js';
 import withFocusNextField from '../Shared/HOCs/focusNextField';
 
 storiesOf('Login', module)
-  // .addDecorator(getStory =>
-  //   <View style={{ paddingTop: Constants.statusBarHeight }}>{getStory()}</View>)
   .add('Ready', () => (
     <Login />
   ))
@@ -32,6 +30,7 @@ storiesOf('Register', module)
   .add('With input errors', () => (
     <Register errors={{
       email: 'NOT_UNIQUE',
+      password: 'TOO_SHORT',
       confirmPassword: 'NOT_MATCHING_PASSWORD',
     }}/>
   ))

@@ -5,7 +5,5 @@ import withFocusNextField from '../../Shared/HOCs/focusNextField';
 
 export default (props) => {
   const RegisterWithFocusNextField = withFocusNextField(Register, Input);
-  return (
-    <RegisterWithFocusNextField {...props}/>
-  )
+  return <RegisterWithFocusNextField {...props}/>;
 }
