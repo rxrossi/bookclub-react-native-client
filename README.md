@@ -13,5 +13,7 @@ Then on another console:
   npm start //Starts the app, that currently loads just the storybook
 ```
 
+Follow instructions on console to open on Expo
+
 ## What is ready in storybook:
   - Login and Register (Made considering reusability and using HOC for 'going to the next field on return key press')
