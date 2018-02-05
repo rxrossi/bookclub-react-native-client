@@ -8,8 +8,9 @@ class Input extends React.Component {
       goNextField,
       placeholder,
       label,
-      setRef,
-      focusNext,
+      name,
+      nextField,
+      focusRelated: { focusNext, setRef },
       ...rest,
     } = this.props;
 
@@ -17,12 +18,12 @@ class Input extends React.Component {
       ...rest,
     }
 
-    if (focusNext) {
+    if (nextField) {
       restOfProps = {
         ...restOfProps,
         blurOnSubmit: false,
         returnKeyType: "next",
-        onSubmitEditing: focusNext,
+        onSubmitEditing: () => focusNext(nextField),
       }
     }
     return (
@@ -36,7 +37,7 @@ class Input extends React.Component {
         underlineColorAndroid={'transparent'}
         autoCapitalize='none'
         style={styles.textInput}
-        ref={setRef && setRef()}
+        ref={setRef && setRef(name)}
         {...restOfProps}
 
       />

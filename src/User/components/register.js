@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Constants } from 'expo';
-import { Text, TouchableOpacity } from 'react-native';
-import Input from '../../Shared/input';
 import ButtonWithAcitivityIndicator from '../../Shared/buttonWithAcitivityIndicator';
 import SwitchLoginRegisterFormsBtn from './switchLoginRegisterFormsBtn';
 import KeyboardAvoidingView from '../../Shared/keyboardAvoidingView.js';
@@ -10,22 +7,23 @@ import GenericError from './genericError';
 
 class Register extends React.Component {
   render() {
-    const { working, errors, setInputRef, focusNextField } = this.props;
+    const { Input, working, errors } = this.props;
     return (
       <KeyboardAvoidingView>
         <Input
           label="Email"
           placeholder="email@mail.com"
           keyboardType="email-address"
-          focusNext={() => focusNextField('password')}
+          name="email"
+          nextField="password"
         />
 
         <Input
           label="Password"
           placeholder="Pick a good one :)"
           secureTextEntry
-          setRef={() => setInputRef('password')}
-          focusNext={() => focusNextField('confirmPassword')}
+          name="password"
+          nextField="confirmPassword"
         />
 
         <Input
@@ -33,7 +31,7 @@ class Register extends React.Component {
           label="Confirm password"
           placeholder="Must be equal to the one before"
           secureTextEntry
-          setRef={() => setInputRef('confirmPassword')}
+          name="confirmPassword"
         />
 
         { errors && errors.general && <GenericError text={errors.general} /> }

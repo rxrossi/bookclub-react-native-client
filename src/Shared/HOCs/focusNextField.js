@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function withFocusNextField(WrappedComponent) {
+
+export default function withFocusNextField(WrappedComponent, DefaultInput) {
   return class WithFocusNextField extends React.Component {
     constructor(props) {
       super(props);
@@ -18,13 +19,21 @@ export default function withFocusNextField(WrappedComponent) {
     }
 
     render() {
+      const Input = ImproveImput(DefaultInput, {
+        focusNext: this.focusNextField,
+        setRef: this.setInputRef,
+      })
+
       return (
         <WrappedComponent
-          setInputRef={this.setInputRef}
-          focusNextField={this.focusNextField}
+          Input={Input}
           {...this.props}
         />
       );
     }
   }
+}
+
+function ImproveImput(Input, focusRelated) {
+  return (props) => <Input focusRelated={focusRelated} {...props} />;
 }
