@@ -9,38 +9,23 @@ import KeyboardAvoidingView from '../../Shared/keyboardAvoidingView.js';
 import GenericError from './genericError';
 
 class Register extends React.Component {
-  constructor(props) {
-    super(props);
-    this.focusNextField = this.focusNextField.bind(this);
-    this.setInputRef = this.setInputRef.bind(this);
-    this.inputs = {};
-  }
-
-  focusNextField(id) {
-    this.inputs[id].focus();
-  }
-
-  setInputRef(id) {
-    return (input) => this.inputs[id] = input;
-  }
-
   render() {
-    const { working, errors } = this.props;
+    const { working, errors, setInputRef, focusNextField } = this.props;
     return (
       <KeyboardAvoidingView>
         <Input
           label="Email"
           placeholder="email@mail.com"
           keyboardType="email-address"
-          focusNext={() => this.focusNextField('password')}
+          focusNext={() => focusNextField('password')}
         />
 
         <Input
           label="Password"
           placeholder="Pick a good one :)"
           secureTextEntry
-          getRef={() => this.setInputRef('password')}
-          focusNext={() => this.focusNextField('confirmPassword')}
+          getRef={() => setInputRef('password')}
+          focusNext={() => focusNextField('confirmPassword')}
         />
 
         <Input
@@ -48,7 +33,7 @@ class Register extends React.Component {
           label="Confirm password"
           placeholder="Must be equal to the one before"
           secureTextEntry
-          getRef={() => this.setInputRef('confirmPassword')}
+          getRef={() => setInputRef('confirmPassword')}
         />
 
         { errors && errors.general && <GenericError text={errors.general} /> }
@@ -64,15 +49,4 @@ class Register extends React.Component {
     );
   }
 }
-
-Register.propTypes = {
-  working: PropTypes.bool,
-  error: PropTypes.objectOf(PropTypes.string)
-}
-
-Register.PropTypes = {
-  working: false,
-  errors: {},
-}
-
 export default Register;

@@ -3,7 +3,8 @@ import { Constants } from 'expo';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import Login from './components/login.js';
-import Register from './components/register.js';
+import Register from './containers/register.js';
+import withFocusNextField from '../Shared/HOCs/focusNextField';
 
 storiesOf('Login', module)
   // .addDecorator(getStory =>
