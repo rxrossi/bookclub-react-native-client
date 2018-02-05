@@ -24,7 +24,7 @@ class Register extends React.Component {
           label="Password"
           placeholder="Pick a good one :)"
           secureTextEntry
-          getRef={() => setInputRef('password')}
+          setRef={() => setInputRef('password')}
           focusNext={() => focusNextField('confirmPassword')}
         />
 
@@ -33,7 +33,7 @@ class Register extends React.Component {
           label="Confirm password"
           placeholder="Must be equal to the one before"
           secureTextEntry
-          getRef={() => setInputRef('confirmPassword')}
+          setRef={() => setInputRef('confirmPassword')}
         />
 
         { errors && errors.general && <GenericError text={errors.general} /> }

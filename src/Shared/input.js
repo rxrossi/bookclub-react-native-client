@@ -8,7 +8,7 @@ class Input extends React.Component {
       goNextField,
       placeholder,
       label,
-      getRef,
+      setRef,
       focusNext,
       ...rest,
     } = this.props;
@@ -36,7 +36,7 @@ class Input extends React.Component {
         underlineColorAndroid={'transparent'}
         autoCapitalize='none'
         style={styles.textInput}
-        ref={getRef && getRef()}
+        ref={setRef && setRef()}
         {...restOfProps}
 
       />
